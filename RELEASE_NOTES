@@ -9,12 +9,16 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        29-Apr-2009, K. Luchini         (LUCHINI):
+#          release highlandLVDTV550-R2-0-0
 #        30-Aug-2007, K. Luchini         (LUCHINI):
 #          release highlandLVDTV550-R1-0-2
 #          release highlandLVDTV550-R1-0-1
 #
 #==============================================================.
 #
+highlandLVDTV550-R2-0-0: Built with base-R3-14-8-2-lcls3 (RTEMS 4.9.1)
+
 highlandLVDTV550-R1-0-2-1:
 	modifications needed to bring the module to EPICS R3-14-9 standard
 
