@@ -19,6 +19,8 @@
 #
 #==============================================================.
 #
+highlandLVDTV550-R2-2-1:   Modificiations to support eco
+
 highlandLVDTV550-R2-2-0:   Built against rtems 4.9.4 and EPICS BASE:
                            base-R3-14-8-2-lcls6
 
