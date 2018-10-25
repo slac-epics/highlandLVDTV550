@@ -75,16 +75,16 @@ int LVDTV550Config(int Card, unsigned long BaseA16)  {
  * return -1, if FAIL
  */
 int init_lvdt(void) {
-    long a16address;
-    int    status,card;      /* memory probe return status */
-    Ushort read_value;  /* place to hold memory read  value */
+    size_t	a16address;
+    int		status,card;      /* memory probe return status */
+    Ushort	read_value;  /* place to hold memory read  value */
 
     for(card = 0; card < MAX_CARDS; card++)  {
 	a16address = LVDTV550card_address[card];
 	if(a16address == 0)
                 continue;
 
-        status = devRegisterAddress( "drvLVDT", atVMEA16, (void *)a16address, sizeof( struct Registers), (void **)&lvdt_base_address[card]); 
+        status = devRegisterAddress( "drvLVDT", atVMEA16, a16address, sizeof( struct Registers), (volatile void **)&lvdt_base_address[card]); 
         /*
          * original vxWorks only code
          * status=sysBusToLocalAdrs(VME_AM_SUP_SHORT_IO, (char *)a16address, (char **)&lvdt_base_address[card]);
@@ -102,7 +102,7 @@ int init_lvdt(void) {
                  * status=vxMemProbe((char *)&(lvdt_base_address[card]->ID),VX_READ,2, (char *)&read_value);
                  */
         	if (status) {
-	    	   	printf("LVDT: Init: MemProbe ERROR at %8X\n",
+	    	   	printf("LVDT: Init: MemProbe ERROR at %8p\n",
 				      lvdt_base_address[card]);
 	    		lvdt_base_address[card]=NULL;
 	    		return -1;
@@ -114,7 +114,7 @@ int init_lvdt(void) {
 	    		return -1;
 		}
 		else {
-	    	printf("Found V550LVDT card %d at %08X\n",card,lvdt_base_address[card]);
+	    	printf("Found V550LVDT card %d at %8p\n",card,lvdt_base_address[card]);
 		}
 
     	}
