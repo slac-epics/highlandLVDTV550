@@ -19,6 +19,15 @@
 #
 #==============================================================.
 #
+R2.3.0:                    Marcio Donadio - 25/Oct/2018
+                           - Merged EED and PCDS versions into one. Differences
+                             are:
+                                 - Added missing Db dir and lvdt.template
+                                 - Fixed some build warnings from drvLVDT.c
+                                 - Added configure/CONFIG_APP
+                           - Changed files to work with EPICS 3.15 and GIT
+                             workflow.
+
 highlandLVDTV550-R2-2-1:   Modificiations to support eco
 
 highlandLVDTV550-R2-2-0:   Built against rtems 4.9.4 and EPICS BASE:
